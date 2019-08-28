@@ -1,24 +1,5 @@
-const path = require("path");
+import React from 'react';
+import ReactDOM from "react-dom";
+import style from './index.css';
 
-module.exports = {
-    entry: "./src/index.js",
-    output: {
-        path: path.join(__dirname, "/dist"),
-        filename: "index_bundle.js"
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                },
-            },
-            {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
-            }
-        ]
-    }
-};
+ReactDOM.render(<h1>Pohodnik</h1>, document.getElementById("root"));
