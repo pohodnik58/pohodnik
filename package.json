@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/pohodnik58/pohodnik/issues"
   },
-  "homepage": "https://github.com/pohodnik58/pohodnik#readme"
+  "homepage": "https://github.com/pohodnik58/pohodnik#readme",
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
 }
