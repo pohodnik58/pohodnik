@@ -1,0 +1,27 @@
+{
+  "name": "pohodnik",
+  "version": "1.0.0",
+  "description": "pohodnik site",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pohodnik58/pohodnik.git"
+  },
+  "keywords": [
+    "hiking",
+    "backpacking",
+    "tracking",
+    "travel",
+    "nature",
+    "outdoor"
+  ],
+  "author": "Nikolay Fedoseev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pohodnik58/pohodnik/issues"
+  },
+  "homepage": "https://github.com/pohodnik58/pohodnik#readme"
+}
