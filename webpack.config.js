@@ -3,13 +3,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require(`mini-css-extract-plugin`);
 const autoprefixer = require(`autoprefixer`);
+const CleanCSSPlugin = require('less-plugin-clean-css');
 
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const IS_DEV = process.env.NODE_ENV === 'development';
-
-
+module.exports = (env, argv) => {
+const IS_DEV = argv.mode  === 'development';
+console.log(`BUILD IN -${argv.mode}- MODE`)
 const htmlWebpackOptions = IS_DEV?{template: './src/index.html'}:{
     template: './src/index.html',
     filename: 'index.html',
@@ -35,8 +36,7 @@ const cssExtractLoader = {
 const cssLoader = {
     loader: `css-loader`,
     options: {
-        sourceMap: IS_DEV,
-        minimize: !IS_DEV
+        sourceMap: IS_DEV
     }
 };
 
@@ -56,22 +56,26 @@ const postCssLoader = {
 const lessLoader = {
     loader: `less-loader`,
     options: {
-        javascriptEnabled: true
+        javascriptEnabled: true,
+        sourceMap: true,
+        plugins: [
+            new CleanCSSPlugin({ advanced: true })
+        ]
     }
 };
 
 
-module.exports = {
+return {
     entry: {
         client: ['./src/index.js'],
         //vendor: ['react', 'react-dom'],
     },
 
     output: {
-        filename: '[name].[chunkhash].bundle.js',
+        filename: IS_DEV ? 'main.js' : '[name].[chunkhash].bundle.js',
         path: path.join(__dirname, "/dist"),
-        chunkFilename: '[name].[chunkhash].bundle.js',
-        publicPath: '/',
+        chunkFilename: IS_DEV?'[name].bundle.js':'[name].[chunkhash].bundle.js',
+        //publicPath: '/',
     },
     module: {
         rules: [
@@ -113,7 +117,7 @@ module.exports = {
             {
                 test: /(?!\.m)..\.less$/,
                 use: [
-                    cssExtractLoader,y
+                    IS_DEV?"style-loader":cssExtractLoader,
                     cssLoader,
                     postCssLoader,
                     lessLoader
@@ -122,15 +126,23 @@ module.exports = {
             {
                 test: /\.m\.less$/,
                 use: [
-                    cssExtractLoader,
+                    IS_DEV?"style-loader":cssExtractLoader,
                     {
                         loader: `css-loader`,
-                        query: {
-                            modules: true,
-                            importLoaders: 1,
-                            localIdentName: `[name]_[local]_[hash:base64:3]`,
+                        options: {
+                            modules: {
+                                mode: 'local',
+                                ...(IS_DEV ? {
+                                    localIdentName: '[path]_[name]_[local]--[hash:base64:3]',
+                                } : {
+                                    getLocalIdent: (context, localIdentName, localName) => (
+                                        require('./utils/cssClassUniqueSmall')(localName, context.resourcePath)
+                                    )
+                                }
+                                )
+                            },
+                            importLoaders: 2,
                             sourceMap: IS_DEV,
-                            minimize: !IS_DEV
                         }
                     },
                     postCssLoader,
@@ -175,3 +187,4 @@ module.exports = {
         },
     },
 };
+}

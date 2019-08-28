@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import style from './index.css';
+import './index.css';
+import style from './style.m.less'
 const x = [1,2,3,4];
-ReactDOM.render(<h1>Pohodnik{x.map(n=>n*10).join(';')}</h1>, document.getElementById("root"));
+class App extends React.Component {
+    render() {
+        return <h1 className={style.h1}>Pohodnik!</h1>
+    }
+}
+ReactDOM.hydrate(<App />, document.getElementById("root"));
 
