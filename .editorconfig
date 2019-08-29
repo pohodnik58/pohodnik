@@ -1,0 +1,21 @@
+root = true
+
+# переносы строк
+[*]
+end_of_line = crlf
+insert_final_newline = true
+
+# отступы в 4 пробела
+[*.js]
+indent_style = space
+indent_size = 4
+
+# отступы в 4 пробела
+[*.less]
+indent_style = space
+indent_size = 4
+
+# отступы в 4 пробела
+[*.css]
+indent_style = space
+indent_size = 4
