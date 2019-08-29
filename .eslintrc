@@ -1,4 +1,4 @@
-module.exports = {
+{
     env: {
         browser: true,
         es6: true,
@@ -7,9 +7,10 @@ module.exports = {
         'airbnb',
     ],
     globals: {
-        Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly',
+        "Atomics": "readonly",
+        SharedArrayBuffer: "readonly",
     },
+    parser: "babel-eslint",
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
