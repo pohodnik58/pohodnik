@@ -26,6 +26,7 @@ function AuthExample() {
                         <Link to="/protected">Protected Page</Link>
                     </li>
                 </ul>
+                {VERSION.toString()}
                 <Route path="/public" component={Public} />
                 <Route path="/login" component={Login} />
                 <PrivateRoute path="/protected" component={Protected} />

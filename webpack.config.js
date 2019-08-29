@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -10,7 +12,10 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env, argv) => {
 const IS_DEV = argv.mode  === 'development';
-console.log(`BUILD IN -${argv.mode}- MODE`)
+console.log(`BUILD IN -${argv.mode}- MODE`);
+
+const package = require('./package.json');
+
 const htmlWebpackOptions = IS_DEV?{template: './src/index.html'}:{
     template: './src/index.html',
     filename: 'index.html',
@@ -157,6 +162,11 @@ return {
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css',
+        }),
+        new webpack.DefinePlugin({
+            PRODUCTION: JSON.stringify(!IS_DEV),
+            NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+            VERSION: JSON.stringify(package.version)
         })
     ],
     optimization: {
