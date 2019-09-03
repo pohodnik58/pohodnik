@@ -1,4 +1,5 @@
 {
+    "root": true,
     "env": {
         "browser": true,
         "es6": true
@@ -8,8 +9,7 @@
         "eslint:recommended"
     ],
     "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "VERSION": "readonly"
     },
     "parser": "babel-eslint",
 
@@ -36,10 +36,13 @@
         "comma-dangle": ["warn", "always"],
         "linebreak-style": ["error", "windows"],
         "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
+        "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }],
         "import/named": 2,
         "import/namespace": 2,
         "import/default": 2,
-        "import/export": 2
+        "import/export": 2,
+        "no-global-assign": ["error", {"exceptions": ["VERSION"]}],
+        "react/jsx-props-no-spreading": 0
     },
     "settings": {
         "import/resolver": "webpack",
