@@ -196,5 +196,8 @@ return {
             // },
         },
     },
+    devServer: {
+        historyApiFallback: true,
+    },
 };
 }

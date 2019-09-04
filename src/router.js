@@ -5,6 +5,7 @@ export default [
     {
         path: '/',
         component: <Page title="Main">Main page content</Page>,
+        exact: true
     },
     {
         path: '/about',

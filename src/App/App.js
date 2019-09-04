@@ -6,10 +6,18 @@ import ProtectedRoute from '../components/ProtectedRoute';
 import routes from '../router';
 
 export class App extends React.Component {
-    getRoutes() {
+    static getRoutes() {
         return routes.map(route => {
             const RouteComponent = route.private ? ProtectedRoute : Route;
-            return <RouteComponent path={route.path} component={route.component} />;
+            return (
+                <RouteComponent
+                    exact={!!route.exact}
+                    key={route.path}
+                    path={route.path}
+                >
+                    {route.component}
+                </RouteComponent>
+            );
         });
     }
 
@@ -29,4 +37,4 @@ export class App extends React.Component {
     }
 }
 
-export default {App};
+export default App;
