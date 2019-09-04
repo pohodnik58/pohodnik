@@ -38,6 +38,16 @@ AuthProvider.propTypes = {
     children: PropTypes.node.isRequired
 };
 
+export function withAuth(Component) {
+    return function WrapperComponent(props) {
+        return (
+            <AuthContext.Consumer>
+                {state => <Component {...props} auth={state} />}
+            </AuthContext.Consumer>
+        );
+    };
+}
+
 export const AuthConsumer = AuthContext.Consumer;
 
-export default { AuthProvider, AuthConsumer };
+export default { AuthProvider, AuthConsumer, withAuth };

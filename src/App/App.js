@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, } from 'react-router-dom';
-import { AuthProvider, } from '../AuthContext';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { AuthProvider } from '../contexts/AuthContext';
 import Header from '../components/Header';
 import ProtectedRoute from '../components/ProtectedRoute';
 import routes from '../router';
 
 export class App extends React.Component {
-    static getRoutes() {
+    getRoutes() {
         return routes.map(route => {
             const RouteComponent = route.private ? ProtectedRoute : Route;
             return (
@@ -14,9 +14,8 @@ export class App extends React.Component {
                     exact={!!route.exact}
                     key={route.path}
                     path={route.path}
-                >
-                    {route.component}
-                </RouteComponent>
+                    component={route.component}
+                />
             );
         });
     }

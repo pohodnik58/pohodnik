@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export function Page({ title, children, }) {
+export function Page({ title, children }) {
     return (
         <section>
             <h1>{title}</h1>

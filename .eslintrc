@@ -33,7 +33,6 @@
             "checkAttributes": false, "indentLogicalExpressions": true}],
         "react/jsx-indent-props": ["error", 4],
         "indent": ["error", 4],
-        "comma-dangle": ["warn", "always"],
         "linebreak-style": ["error", "windows"],
         "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
         "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }],
@@ -43,7 +42,8 @@
         "import/export": 2,
         "no-global-assign": ["error", {"exceptions": ["VERSION"]}],
         "react/jsx-props-no-spreading": 0,
-        "arrow-parens": [2, "as-needed"]
+        "arrow-parens": [2, "as-needed"],
+        "comma-dangle": ["error", "only-multiline"]
     },
     "settings": {
         "import/resolver": "webpack",

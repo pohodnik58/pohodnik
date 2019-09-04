@@ -81,7 +81,12 @@ return {
         path: path.join(__dirname, "/dist"),
         chunkFilename: IS_DEV?'[name].bundle.js':'[name].[chunkhash].bundle.js',
         //publicPath: '/',
+        sourceMapFilename: '[file].map', // Default
+
+        devtoolModuleFilenameTemplate:
+            'webpack:///[resource-path]?[loaders]'
     },
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
