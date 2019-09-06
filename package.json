@@ -10,7 +10,18 @@
     "build": "webpack --mode production",
     "deploy": "yarn build & node ./scripts/ftpDeploy",
     "test": "jest --colors",
-    "test:watch": "jest --watch --colors"
+    "test:watch": "jest --watch --colors",
+    "lint": "eslint --debug src/",
+    "lint:fix": "eslint --debug src/ --fix"
+  },
+  "lint-staged": {
+    "*.js": ["npm run lint:fix", "git add"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "test"
+    }
   },
   "repository": {
     "type": "git",
@@ -56,12 +67,14 @@
     "file-loader": "^4.2.0",
     "ftp-deploy": "^2.3.3",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.5",
     "image-webpack-loader": "^6.0.0",
     "incstr": "^1.2.3",
     "jest": "^24.9.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "less-plugin-clean-css": "^1.5.1",
+    "lint-staged": "^9.2.5",
     "mini-css-extract-plugin": "^0.8.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-flexbugs-fixes": "^4.1.0",
