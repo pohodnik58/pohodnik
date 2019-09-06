@@ -109,24 +109,9 @@ return {
                 exclude: /.*node_modules.+/,
                 use: {
                     loader: `babel-loader`,
-                    query: {
-                        cacheDirectory: true,
-                        cacheCompression: false,
-                        presets: [
-                            `@babel/preset-react`,
-                            [`@babel/preset-env`, {
-                                modules: false,
-                                targets: {
-                                    esmodules: false
-                                }
-                            }]
-                        ],
-                        plugins: [
-                            [`@babel/plugin-proposal-class-properties`, { loose: true }],
-                            `@babel/plugin-proposal-export-default-from`,
-                            `@babel/plugin-syntax-dynamic-import`,
-                            `@babel/plugin-proposal-optional-chaining`
-                        ]
+                    options: {
+                        babelrc: true,
+                        cacheDirectory: true
                     }
                 }
             },
