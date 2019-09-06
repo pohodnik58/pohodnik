@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthProvider } from '../contexts/AuthContext';
 import Header from '../components/Header';
 import ProtectedRoute from '../components/ProtectedRoute';
+import logo from '../images/pohColor.svg';
+import img from '../images/tree1.png';
 import routes from '../router';
 
 export class App extends React.Component {
@@ -25,6 +27,8 @@ export class App extends React.Component {
             <div>
                 <AuthProvider>
                     <Router>
+                        <img src={logo} alt={'d'}/>
+                        <img src={img} alt={'d'}/>
                         <Header />
                         <Switch>
                             {this.getRoutes()}

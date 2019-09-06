@@ -158,6 +158,49 @@ return {
                     postCssLoader,
                     lessLoader
                 ]
+            },
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "fonts/[name].[ext]",
+                    },
+                },
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "images/[name].[ext]",
+                        },
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 65
+                            },
+                            optipng: {
+                                enabled: true,
+                            },
+                            pngquant: {
+                                quality: [0.65, 0.90],
+                                speed: 4
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            // the webp option will enable WEBP
+                            webp: {
+                                quality: 75
+                            }
+                        }
+                    },
+                ],
             }
         ]
     },
