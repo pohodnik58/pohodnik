@@ -11,16 +11,25 @@
     "deploy": "yarn build & node ./scripts/ftpDeploy",
     "test": "jest --colors",
     "test:watch": "jest --watch --colors",
-    "lint": "eslint --debug src/",
-    "lint:fix": "eslint --debug src/ --fix"
+    "eslint": "eslint --debug src/",
+    "eslint:fix": "eslint --debug src/ --fix",
+    "stylelint": "stylelint \"src/**/*.less\" --color --syntax less",
+    "stylelint:fix": "stylelint \"src/**/*.less\" --color --syntax less --fix"
   },
   "lint-staged": {
-    "*.js": ["npm run lint:fix", "git add"]
+    "*.js": [
+      "npm run lint:fix",
+      "git add"
+    ],
+    "*.less": [
+      "npm run stylelint:fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run test"
+      "pre-push": "npm run test && eslint && stylelint"
     }
   },
   "repository": {
@@ -82,6 +91,9 @@
     "prop-types": "^15.7.2",
     "style-loader": "^1.0.0",
     "stylelint": "^10.1.0",
+    "stylelint-config-airbnb": "^0.0.0",
+    "stylelint-order": "^3.1.0",
+    "stylelint-scss": "^3.10.1",
     "terser-webpack-plugin": "^1.4.1",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
