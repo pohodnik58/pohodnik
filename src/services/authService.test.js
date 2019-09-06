@@ -18,5 +18,5 @@ test('the data is ololo', async () => {
 });
 
 test('should fetch users', () => {
-    authService.checkAuth().then(data => expect(data).toEqual({auth: true}));
+    authService.checkAuth().then(data => expect(data).toEqual({ auth: true }));
 });

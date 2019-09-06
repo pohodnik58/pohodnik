@@ -7,7 +7,7 @@ import logo from '../images/pohColor.svg';
 import img from '../images/tree1.png';
 import routes from '../router';
 
-export class App extends React.Component {
+class App extends React.Component {
     getRoutes() {
         return routes.map(route => {
             const RouteComponent = route.private ? ProtectedRoute : Route;
@@ -27,8 +27,8 @@ export class App extends React.Component {
             <div>
                 <AuthProvider>
                     <Router>
-                        <img src={logo} alt={'d'}/>
-                        <img src={img} alt={'d'}/>
+                        <img src={logo} alt="d" />
+                        <img src={img} alt="d" />
                         <Header />
                         <Switch>
                             {this.getRoutes()}

@@ -11,25 +11,25 @@
     "deploy": "yarn build & node ./scripts/ftpDeploy",
     "test": "jest --colors",
     "test:watch": "jest --watch --colors",
-    "eslint": "eslint --debug src/",
-    "eslint:fix": "eslint --debug src/ --fix",
-    "stylelint": "stylelint \"src/**/*.less\" --color --syntax less",
-    "stylelint:fix": "stylelint \"src/**/*.less\" --color --syntax less --fix"
+    "eslint": "eslint src/**/*.js --quiet",
+    "eslint:fix": "eslint src/**/*.js --quiet --fix",
+    "stylelint": "stylelint src/**/*.less --quiet --color --syntax less",
+    "stylelint:fix": "stylelint src/**/*.less --quiet --color --syntax less --fix"
   },
   "lint-staged": {
     "*.js": [
-      "npm run lint:fix",
+      "yarn eslint:fix",
       "git add"
     ],
     "*.less": [
-      "npm run stylelint:fix",
+      "yarn stylelint:fix",
       "git add"
     ]
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run test && eslint && stylelint"
+      "pre-push": "yarn test && yarn eslint && yarn stylelint"
     }
   },
   "repository": {
