@@ -9,6 +9,7 @@ const CleanCSSPlugin = require('less-plugin-clean-css');
 
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = (env, argv) => {
 const IS_DEV = argv.mode  === 'development';
@@ -30,6 +31,20 @@ const htmlWebpackOptions = IS_DEV?{template: './src/index.html'}:{
         minifyCSS: true,
     }
 };
+
+const pwaManifestConfig = {
+    name: 'ПОХОДНИКИ',
+    short_name: 'ПОХОДНИКИ',
+    description: 'Сайт походников',
+    background_color: '#ffffff',
+    crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+    icons: [
+        {
+            src: path.resolve('src/images/pohodnik_logo_512.png'),
+            sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+        }
+    ]
+}
 
 const cssExtractLoader = {
     loader: MiniCssExtractPlugin.loader,
@@ -211,6 +226,7 @@ return {
             filename: '[name].css',
             chunkFilename: '[id].css',
         }),
+        new WebpackPwaManifest(pwaManifestConfig),
         new webpack.DefinePlugin({
             PRODUCTION: JSON.stringify(!IS_DEV),
             NODE_ENV: JSON.stringify(process.env.NODE_ENV),
