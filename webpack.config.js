@@ -110,7 +110,8 @@ module.exports = (env, argv) => {
                         loader: 'babel-loader',
                         options: {
                             babelrc: true,
-                            cacheDirectory: true
+                            cacheDirectory: true,
+                            presets: ['@babel/react']
                         }
                     }
                 },
