@@ -14,11 +14,17 @@
     "eslint": "eslint src/**/*.js --quiet",
     "eslint:fix": "eslint src/**/*.js --quiet --fix",
     "stylelint": "stylelint src/**/*.less --quiet --color --syntax less",
-    "stylelint:fix": "stylelint src/**/*.less --quiet --color --syntax less --fix"
+    "stylelint:fix": "stylelint src/**/*.less --quiet --color --syntax less --fix",
+    "jsdoc": "documentation build src/**/*.js -f md --github --config docs/documentation.yml -o docs/docs.md --document-exported",
+    "jsdoc:lint": "documentation lint src/**/*.js"
   },
   "lint-staged": {
     "*.js": [
       "yarn eslint:fix",
+      "git add"
+    ],
+    "*.js": [
+      "yarn jsdoc",
       "git add"
     ],
     "*.less": [
@@ -29,7 +35,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test && yarn eslint && yarn stylelint"
+      "pre-push": "yarn test && yarn eslint && yarn stylelint && jsdoc"
     }
   },
   "repository": {
@@ -65,6 +71,7 @@
     "babel-preset-minify": "^0.5.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
+    "documentation": "^12.1.1",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-import-resolver-webpack": "^0.11.1",

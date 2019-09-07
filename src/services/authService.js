@@ -1,3 +1,6 @@
+/**
+ * @namespace authService
+ */
 export default {
     /**
      * fake fetch
