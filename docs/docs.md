@@ -3,26 +3,26 @@
 ### Table of Contents
 
 -   [Helpers][1]
--   [Page][2]
-    -   [Parameters][3]
--   [authService][4]
-    -   [fetchData][5]
+-   [authService][2]
+    -   [fetchData][3]
+        -   [Parameters][4]
+    -   [checkAuth][5]
         -   [Parameters][6]
-    -   [checkAuth][7]
-        -   [Parameters][8]
--   [Header][9]
--   [AuthProvider][10]
-    -   [Parameters][11]
-    -   [login][12]
-    -   [logout][13]
-    -   [render][14]
--   [router][15]
--   [App][16]
-    -   [getRoutes][17]
-    -   [render][18]
+-   [Page][7]
+    -   [Parameters][8]
+-   [AuthProvider][9]
+    -   [Parameters][10]
+    -   [login][11]
+    -   [logout][12]
+    -   [render][13]
+-   [router][14]
+-   [App][15]
+    -   [getRoutes][16]
+    -   [render][17]
+-   [Header][18]
 -   [httpClient][19]
-    -   [get][20]
-    -   [post][21]
+    -   [post][20]
+    -   [get][21]
 -   [ProtectedRoute][22]
 -   [withAuth][23]
     -   [Parameters][24]
@@ -37,14 +37,6 @@
 Вспомогательные функции
 
 
-## Page
-
-### Parameters
-
--   `$0` **[Object][30]** 
-    -   `$0.title`  
-    -   `$0.children`  
-
 ## authService
 
 ### fetchData
@@ -55,7 +47,7 @@ fake fetch
 
 -   `timeout`   (optional, default `500`)
 
-Returns **[Promise][31]&lt;unknown>** 
+Returns **[Promise][30]&lt;unknown>** 
 
 ### checkAuth
 
@@ -63,7 +55,13 @@ Returns **[Promise][31]&lt;unknown>**
 
 -   `timeout`   (optional, default `500`)
 
-## Header
+## Page
+
+### Parameters
+
+-   `$0` **[Object][31]** 
+    -   `$0.title`  
+    -   `$0.children`  
 
 ## AuthProvider
 
@@ -92,11 +90,13 @@ Returns **[Promise][31]&lt;unknown>**
 
 ### render
 
+## Header
+
 ## httpClient
 
-### get
-
 ### post
+
+### get
 
 ## ProtectedRoute
 
@@ -118,45 +118,45 @@ Returns **[Promise][31]&lt;unknown>**
 
 [1]: #helpers
 
-[2]: #page
+[2]: #authservice
 
-[3]: #parameters
+[3]: #fetchdata
 
-[4]: #authservice
+[4]: #parameters
 
-[5]: #fetchdata
+[5]: #checkauth
 
 [6]: #parameters-1
 
-[7]: #checkauth
+[7]: #page
 
 [8]: #parameters-2
 
-[9]: #header
+[9]: #authprovider
 
-[10]: #authprovider
+[10]: #parameters-3
 
-[11]: #parameters-3
+[11]: #login
 
-[12]: #login
+[12]: #logout
 
-[13]: #logout
+[13]: #render
 
-[14]: #render
+[14]: #router
 
-[15]: #router
+[15]: #app
 
-[16]: #app
+[16]: #getroutes
 
-[17]: #getroutes
+[17]: #render-1
 
-[18]: #render-1
+[18]: #header
 
 [19]: #httpclient
 
-[20]: #get
+[20]: #post
 
-[21]: #post
+[21]: #get
 
 [22]: #protectedroute
 
@@ -174,8 +174,8 @@ Returns **[Promise][31]&lt;unknown>**
 
 [29]: #authprovider-1
 
-[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
 [32]: https://reacttraining.com/react-router/web/guides/quick-start
