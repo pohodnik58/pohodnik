@@ -39,21 +39,15 @@
 
 ## Page
 
-[src/components/Page/index.js:4-11][30]
-
 ### Parameters
 
--   `$0` **[Object][31]** 
+-   `$0` **[Object][30]** 
     -   `$0.title`  
     -   `$0.children`  
 
 ## authService
 
-[src/services/authService.js:4-23][32]
-
 ### fetchData
-
-[src/services/authService.js:10-15][33]
 
 fake fetch
 
@@ -61,11 +55,9 @@ fake fetch
 
 -   `timeout`   (optional, default `500`)
 
-Returns **[Promise][34]&lt;unknown>** 
+Returns **[Promise][31]&lt;unknown>** 
 
 ### checkAuth
-
-[src/services/authService.js:17-22][35]
 
 #### Parameters
 
@@ -73,11 +65,7 @@ Returns **[Promise][34]&lt;unknown>**
 
 ## Header
 
-[src/components/Header.js:5-30][36]
-
 ## AuthProvider
-
-[src/contexts/AuthContext.js:6-35][37]
 
 **Extends React.Component**
 
@@ -87,56 +75,32 @@ Returns **[Promise][34]&lt;unknown>**
 
 ### login
 
-[src/contexts/AuthContext.js:12-14][38]
-
 ### logout
-
-[src/contexts/AuthContext.js:16-18][39]
 
 ### render
 
-[src/contexts/AuthContext.js:20-34][40]
-
 ## router
 
-[src/router.js:8-31][41]
-
 Главный роутер приложения
-работает на базе [React router][42]
+работает на базе [React router][32]
 
 ## App
-
-[src/components/App/App.js:10-41][43]
 
 **Extends React.Component**
 
 ### getRoutes
 
-[src/components/App/App.js:11-23][44]
-
 ### render
-
-[src/components/App/App.js:25-40][45]
 
 ## httpClient
 
-[src/helpers/httpClient.js:27-27][46]
-
 ### get
-
-[src/helpers/httpClient.js:27-27][46]
 
 ### post
 
-[src/helpers/httpClient.js:27-27][46]
-
 ## ProtectedRoute
 
-[src/components/ProtectedRoute.js:29-29][47]
-
 ## withAuth
-
-[src/contexts/AuthContext.js:41-49][48]
 
 ### Parameters
 
@@ -144,23 +108,13 @@ Returns **[Promise][34]&lt;unknown>**
 
 ## AuthConsumer
 
-[src/contexts/AuthContext.js:51-51][49]
-
 ## AuthContext
-
-[src/contexts/AuthContext.js:53-53][50]
 
 ### withAuth
 
-[src/contexts/AuthContext.js:53-53][50]
-
 ### AuthConsumer
 
-[src/contexts/AuthContext.js:53-53][50]
-
 ### AuthProvider
-
-[src/contexts/AuthContext.js:53-53][50]
 
 [1]: #helpers
 
@@ -220,44 +174,8 @@ Returns **[Promise][34]&lt;unknown>**
 
 [29]: #authprovider-1
 
-[30]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/components/Page/index.js#L4-L11 "Source code on GitHub"
+[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-[32]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/services/authService.js#L4-L23 "Source code on GitHub"
-
-[33]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/services/authService.js#L10-L15 "Source code on GitHub"
-
-[34]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-[35]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/services/authService.js#L17-L22 "Source code on GitHub"
-
-[36]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/components/Header.js#L5-L30 "Source code on GitHub"
-
-[37]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/contexts/AuthContext.js#L6-L35 "Source code on GitHub"
-
-[38]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/contexts/AuthContext.js#L12-L14 "Source code on GitHub"
-
-[39]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/contexts/AuthContext.js#L16-L18 "Source code on GitHub"
-
-[40]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/contexts/AuthContext.js#L20-L34 "Source code on GitHub"
-
-[41]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/router.js#L8-L31 "Source code on GitHub"
-
-[42]: https://reacttraining.com/react-router/web/guides/quick-start
-
-[43]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/components/App/App.js#L10-L41 "Source code on GitHub"
-
-[44]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/components/App/App.js#L11-L23 "Source code on GitHub"
-
-[45]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/components/App/App.js#L25-L40 "Source code on GitHub"
-
-[46]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/helpers/httpClient.js#L27-L27 "Source code on GitHub"
-
-[47]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/components/ProtectedRoute.js#L29-L29 "Source code on GitHub"
-
-[48]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/contexts/AuthContext.js#L41-L49 "Source code on GitHub"
-
-[49]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/contexts/AuthContext.js#L51-L51 "Source code on GitHub"
-
-[50]: https://github.com/pohodnik58/pohodnik/blob/93507b42d1d17356ae1dc500a94bc29a3b3fd5bd/src/contexts/AuthContext.js#L53-L53 "Source code on GitHub"
+[32]: https://reacttraining.com/react-router/web/guides/quick-start
