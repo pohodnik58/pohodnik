@@ -1,12 +1,7 @@
 {
     "presets": [
-        "@babel/preset-react",
-        ["@babel/preset-env", {
-            "modules": false,
-            "targets": {
-                "esmodules": false
-            }
-        }]
+        "@babel/preset-env",
+        "@babel/preset-react"
     ],
     "plugins": [
         ["@babel/plugin-proposal-class-properties", { "loose": true }],
@@ -28,6 +23,9 @@
                     }
                 }]
             ]
+        },
+        "development": {
+            "plugins": []
         },
         "production": {
             "presets": ["preset-minify"]

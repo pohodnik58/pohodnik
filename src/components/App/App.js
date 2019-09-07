@@ -11,14 +11,12 @@ class App extends React.Component {
     getRoutes() {
         return routes.map(route => {
             const RouteComponent = route.private ? ProtectedRoute : Route;
-            return (
-                <RouteComponent
-                    exact={!!route.exact}
-                    key={route.path}
-                    path={route.path}
-                    component={route.component}
-                />
-            );
+            return React.createElement(RouteComponent, {
+                exact: !!route.exact,
+                key: route.path,
+                path: route.path,
+                component: route.component
+            });
         });
     }
 
@@ -27,6 +25,7 @@ class App extends React.Component {
             <div>
                 <AuthProvider>
                     <Router>
+                        <Header />
                         <img src={logo} alt="d" />
                         <img src={img} alt="d" />
                         <Header />
