@@ -15,7 +15,7 @@
     "eslint:fix": "eslint src/**/*.js --quiet --fix",
     "stylelint": "stylelint src/**/*.less --quiet --color --syntax less",
     "stylelint:fix": "stylelint src/**/*.less --quiet --color --syntax less --fix",
-    "jsdoc": "documentation build src/**/*.js -f md --github --config docs/documentation.yml -o docs/docs.md --document-exported",
+    "jsdoc": "documentation build src/**/*.js -f md --config docs/documentation.yml -o docs/docs.md --document-exported",
     "jsdoc:lint": "documentation lint src/**/*.js"
   },
   "lint-staged": {
@@ -36,7 +36,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test && yarn eslint && yarn stylelint && yarn jsdoc"
+      "pre-push": "yarn test && yarn eslint && yarn stylelint && yarn jsdoc --github"
     }
   },
   "repository": {
