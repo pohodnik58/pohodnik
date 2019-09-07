@@ -1,6 +1,10 @@
 import React from 'react';
 import Page from './components/Page';
 
+/**
+ * Главный роутер приложения
+ * работает на базе {@link https://reacttraining.com/react-router/web/guides/quick-start React router}
+ */
 export default [
     {
         path: '/',
