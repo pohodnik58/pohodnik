@@ -2,6 +2,11 @@
  * Для запросов к API (ожидается ответ в формате JSON)
  * @namespace helpers/httpClient
  */
+
+function getHost() {
+    return PRODUCTION ? '/' : 'http://localhost:8000/';
+}
+
 /**
  * Выполняет GET запрос к серверу
  * @param url
@@ -9,8 +14,9 @@
  * @param opts
  * @returns {Promise<any>}
  */
-function get(url, data, opts) {
-    return fetch(url, data, opts).then(res => res.json());
+export function get(url, data, opts) {
+    const fullUrl = `${getHost()}${url}`;
+    return fetch(fullUrl, data, opts).then(res => res.json());
 }
 
 /**
@@ -20,8 +26,9 @@ function get(url, data, opts) {
  * @param opts
  * @returns {Promise<any>}
  */
-function post(url, data, opts) {
-    return fetch(url, data, opts).then(res => res.json());
+export function post(url, data, opts) {
+    const fullUrl = `${getHost()}${url}`;
+    return fetch(fullUrl, data, opts).then(res => res.json());
 }
 
 export default { get, post };

@@ -13,6 +13,8 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+
 module.exports = (env, argv) => {
     const IS_DEV = argv.mode === 'development';
     const pakageJson = require('./package.json');
@@ -216,7 +218,8 @@ module.exports = (env, argv) => {
                 PRODUCTION: JSON.stringify(!IS_DEV),
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
                 VERSION: JSON.stringify(pakageJson.version)
-            })
+            }),
+			new AntdDayjsWebpackPlugin()
         ],
         optimization: {
             minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
