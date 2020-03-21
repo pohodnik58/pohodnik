@@ -12,8 +12,12 @@ export default [
         exact: true
     },
     {
-        path: '/about',
-        component: () => <Page title="Abouut">About page content here</Page>,
+        path: '/hiking',
+        component: () => <Page title="hiking">hiking page content here</Page>,
+    },
+    {
+        path: '/routes',
+        component: () => <Page title="routes">routes page content here</Page>,
     },
     {
         path: '/login',

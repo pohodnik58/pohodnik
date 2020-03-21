@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu } from 'antd';
 import {AuthConsumer} from "../../../contexts/AuthContext";
 import style from './style.m.less';
+import {Link} from "react-router-dom";
 
 export default () => (
     <AuthConsumer>
@@ -12,9 +13,15 @@ export default () => (
                 defaultSelectedKeys={['2']}
                 className={style.mainMenu}
             >
-                <Menu.Item key="1" href={'http://ya.ru'}>Походы</Menu.Item>
-                <Menu.Item key="2">Маршруты</Menu.Item>
-                <Menu.Item key="3">Рецепты</Menu.Item>
+                <Menu.Item key="hiking">
+                    <Link to={'/hiking'}>Походы</Link>
+                </Menu.Item>
+                <Menu.Item key="routes">
+                    <Link to={'/routes'}>Маршруты</Link>
+                </Menu.Item>
+                <Menu.Item key="3">
+                    <Link to={'/recipes'}>Рецепты</Link>
+                </Menu.Item>
                 {
                     isAuth
                     ? <Menu.Item key="4" onClick={logout}>Выйти</Menu.Item>

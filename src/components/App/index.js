@@ -2,15 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthProvider } from '../../contexts/AuthContext';
 import Header from '../Header';
+import Footer from '../Footer';
 import ProtectedRoute from '../ProtectedRoute';
-import logo from '../../images/pohColor.svg';
-import img from '../../images/tree1.png';
 import routes from '../../router';
+import history from '../../history'
 import {Breadcrumb, Layout } from "antd";
 
-const {Content, Footer} = Layout;
+const {Content} = Layout;
 
-class App extends React.Component {
+class Index extends React.Component {
     getRoutes() {
         return routes.map(route => {
             const RouteComponent = route.private ? ProtectedRoute : Route;
@@ -27,7 +27,7 @@ class App extends React.Component {
         return (
             <div>
                 <AuthProvider>
-                    <Router>
+                    <Router history={history}>
                         <Layout className="layout">
                             <Header />
                             <Content style={{ padding: '0 50px' }}>
@@ -36,13 +36,14 @@ class App extends React.Component {
                                     <Breadcrumb.Item>List</Breadcrumb.Item>
                                     <Breadcrumb.Item>App</Breadcrumb.Item>
                                 </Breadcrumb>
-                                <div className="site-layout-content">Content</div>
+                                <div className="site-layout-content">
+                                    <Switch>
+                                        {this.getRoutes()}
+                                    </Switch>
+                                </div>
+                                <Footer />
                             </Content>
-                            <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
                         </Layout>
-                        <Switch>
-                            {this.getRoutes()}
-                        </Switch>
                     </Router>
                 </AuthProvider>
             </div>
@@ -50,4 +51,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default Index;

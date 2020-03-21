@@ -3,39 +3,82 @@
 ### Table of Contents
 
 -   [Helpers][1]
--   [authService][2]
-    -   [fetchData][3]
-        -   [Parameters][4]
-    -   [checkAuth][5]
-        -   [Parameters][6]
--   [Page][7]
-    -   [Parameters][8]
--   [AuthProvider][9]
-    -   [Parameters][10]
-    -   [login][11]
-    -   [logout][12]
-    -   [render][13]
--   [router][14]
--   [App][15]
-    -   [getRoutes][16]
-    -   [render][17]
--   [Header][18]
--   [httpClient][19]
-    -   [post][20]
-    -   [get][21]
--   [ProtectedRoute][22]
--   [withAuth][23]
-    -   [Parameters][24]
--   [AuthConsumer][25]
--   [AuthContext][26]
-    -   [withAuth][27]
-    -   [AuthConsumer][28]
-    -   [AuthProvider][29]
+-   [navigate][2]
+    -   [Parameters][3]
+    -   [navigate][4]
+-   [navigate][5]
+    -   [navigate][6]
+-   [index][7]
+-   [index][8]
+-   [index][9]
+-   [index][10]
+-   [index][11]
+-   [Page][12]
+    -   [Parameters][13]
+-   [authService][14]
+    -   [fetchData][15]
+        -   [Parameters][16]
+    -   [checkAuth][17]
+        -   [Parameters][18]
+-   [AuthProvider][19]
+    -   [Parameters][20]
+    -   [login][21]
+    -   [logout][22]
+    -   [render][23]
+-   [router][24]
+-   [Index][25]
+    -   [getRoutes][26]
+    -   [render][27]
+-   [get][28]
+    -   [Parameters][29]
+-   [ProtectedRoute][30]
+-   [post][31]
+    -   [Parameters][32]
+-   [httpClient][33]
+    -   [get][34]
+    -   [post][35]
+-   [withAuth][36]
+    -   [Parameters][37]
+-   [AuthConsumer][38]
+-   [AuthContext][39]
+    -   [AuthProvider][40]
+    -   [AuthConsumer][41]
+    -   [withAuth][42]
 
 ## Helpers
 
 Вспомогательные функции
 
+
+## navigate
+
+### Parameters
+
+-   `addr`  
+
+### navigate
+
+## navigate
+
+### navigate
+
+## index
+
+## index
+
+## index
+
+## index
+
+## index
+
+## Page
+
+### Parameters
+
+-   `$0` **[Object][43]** 
+    -   `$0.title`  
+    -   `$0.children`  
 
 ## authService
 
@@ -47,21 +90,13 @@ fake fetch
 
 -   `timeout`   (optional, default `500`)
 
-Returns **[Promise][30]&lt;unknown>** 
+Returns **[Promise][44]&lt;unknown>** 
 
 ### checkAuth
 
 #### Parameters
 
 -   `timeout`   (optional, default `500`)
-
-## Page
-
-### Parameters
-
--   `$0` **[Object][31]** 
-    -   `$0.title`  
-    -   `$0.children`  
 
 ## AuthProvider
 
@@ -80,9 +115,9 @@ Returns **[Promise][30]&lt;unknown>**
 ## router
 
 Главный роутер приложения
-работает на базе [React router][32]
+работает на базе [React router][45]
 
-## App
+## Index
 
 **Extends React.Component**
 
@@ -90,15 +125,37 @@ Returns **[Promise][30]&lt;unknown>**
 
 ### render
 
-## Header
+## get
+
+Выполняет GET запрос к серверу
+
+### Parameters
+
+-   `url`  
+-   `data`  
+-   `opts`  
+
+Returns **[Promise][44]&lt;any>** 
+
+## ProtectedRoute
+
+## post
+
+Выполняет POST запрос к серверу
+
+### Parameters
+
+-   `url` **[string][46]** адрес
+-   `data`  
+-   `opts`  
+
+Returns **[Promise][44]&lt;any>** 
 
 ## httpClient
 
-### post
-
 ### get
 
-## ProtectedRoute
+### post
 
 ## withAuth
 
@@ -110,72 +167,100 @@ Returns **[Promise][30]&lt;unknown>**
 
 ## AuthContext
 
-### withAuth
+### AuthProvider
 
 ### AuthConsumer
 
-### AuthProvider
+### withAuth
 
 [1]: #helpers
 
-[2]: #authservice
+[2]: #navigate
 
-[3]: #fetchdata
+[3]: #parameters
 
-[4]: #parameters
+[4]: #navigate-1
 
-[5]: #checkauth
+[5]: #navigate-2
 
-[6]: #parameters-1
+[6]: #navigate-3
 
-[7]: #page
+[7]: #index
 
-[8]: #parameters-2
+[8]: #index-1
 
-[9]: #authprovider
+[9]: #index-2
 
-[10]: #parameters-3
+[10]: #index-3
 
-[11]: #login
+[11]: #index-4
 
-[12]: #logout
+[12]: #page
 
-[13]: #render
+[13]: #parameters-1
 
-[14]: #router
+[14]: #authservice
 
-[15]: #app
+[15]: #fetchdata
 
-[16]: #getroutes
+[16]: #parameters-2
 
-[17]: #render-1
+[17]: #checkauth
 
-[18]: #header
+[18]: #parameters-3
 
-[19]: #httpclient
+[19]: #authprovider
 
-[20]: #post
+[20]: #parameters-4
 
-[21]: #get
+[21]: #login
 
-[22]: #protectedroute
+[22]: #logout
 
-[23]: #withauth
+[23]: #render
 
-[24]: #parameters-4
+[24]: #router
 
-[25]: #authconsumer
+[25]: #index-5
 
-[26]: #authcontext
+[26]: #getroutes
 
-[27]: #withauth-1
+[27]: #render-1
 
-[28]: #authconsumer-1
+[28]: #get
 
-[29]: #authprovider-1
+[29]: #parameters-5
 
-[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[30]: #protectedroute
 
-[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[31]: #post
 
-[32]: https://reacttraining.com/react-router/web/guides/quick-start
+[32]: #parameters-6
+
+[33]: #httpclient
+
+[34]: #get-1
+
+[35]: #post-1
+
+[36]: #withauth
+
+[37]: #parameters-7
+
+[38]: #authconsumer
+
+[39]: #authcontext
+
+[40]: #authprovider-1
+
+[41]: #authconsumer-1
+
+[42]: #withauth-1
+
+[43]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[44]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+[45]: https://reacttraining.com/react-router/web/guides/quick-start
+
+[46]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
