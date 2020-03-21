@@ -4,10 +4,11 @@ import logo from '../../../images/pohColor.svg';
 
 export default () => (
     <div className={style.logo}>
-        <img src={logo} height={32} className={style.image} />
+        <img src={logo} height={32} className={style.image} alt="poh" />
         <span>
-            Походники<br />
+            Походники
+            <br />
             Пензы
         </span>
     </div>
-)
+);

@@ -1,16 +1,14 @@
 import React from 'react';
+import { Layout } from 'antd';
 import MainMenu from './MainMenu';
 import Logo from './Logo';
-import { Layout } from 'antd';
-import style from './style.m.less'
+import style from './style.m.less';
 
 const { Header } = Layout;
 
-export default () => {
-    return (
-        <Header className={style.header}>
-            <Logo />
-            <MainMenu />
-        </Header>
-    );
-};
+export default () => (
+    <Header className={style.header}>
+        <Logo />
+        <MainMenu />
+    </Header>
+);

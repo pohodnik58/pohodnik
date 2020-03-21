@@ -10,7 +10,8 @@
         "eslint:recommended"
     ],
     "globals": {
-        "VERSION": "readonly"
+        "VERSION": "readonly",
+        "PRODUCTION": "readonly"
     },
     "parser": "babel-eslint",
 

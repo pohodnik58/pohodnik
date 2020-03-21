@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Breadcrumb, Layout } from 'antd';
 import { AuthProvider } from '../../contexts/AuthContext';
 import Header from '../Header';
 import Footer from '../Footer';
 import ProtectedRoute from '../ProtectedRoute';
 import routes from '../../router';
-import history from '../../history'
-import {Breadcrumb, Layout } from "antd";
+import history from '../../history';
 
-const {Content} = Layout;
+const { Content } = Layout;
 
 class Index extends React.Component {
     getRoutes() {
