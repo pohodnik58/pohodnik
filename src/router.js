@@ -1,5 +1,6 @@
 import React from 'react';
 import Page from './components/Page';
+import Login from './apps/Login';
 
 /**
  * Главный роутер приложения
@@ -21,7 +22,7 @@ export default [
     },
     {
         path: '/login',
-        component: () => <Page title="Login">Login content here</Page>,
+        component: () => <Login />,
     },
     {
         path: '/logout',
