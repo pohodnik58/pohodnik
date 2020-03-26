@@ -3,7 +3,7 @@ import {
     Form, Input, Button, Checkbox
 } from 'antd';
 import style from './style.m.less';
-import {post} from "../../helpers/httpClient";
+import { post } from '../../helpers/httpClient';
 
 const layout = {
     labelCol: {

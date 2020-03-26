@@ -29,21 +29,22 @@
 -   [Index][25]
     -   [getRoutes][26]
     -   [render][27]
--   [get][28]
-    -   [Parameters][29]
--   [ProtectedRoute][30]
--   [post][31]
-    -   [Parameters][32]
--   [httpClient][33]
-    -   [get][34]
-    -   [post][35]
--   [withAuth][36]
-    -   [Parameters][37]
--   [AuthConsumer][38]
--   [AuthContext][39]
-    -   [AuthProvider][40]
-    -   [AuthConsumer][41]
-    -   [withAuth][42]
+-   [Login][28]
+-   [get][29]
+    -   [Parameters][30]
+-   [ProtectedRoute][31]
+-   [post][32]
+    -   [Parameters][33]
+-   [withAuth][34]
+    -   [Parameters][35]
+-   [httpClient][36]
+    -   [get][37]
+    -   [post][38]
+-   [AuthConsumer][39]
+-   [AuthContext][40]
+    -   [AuthProvider][41]
+    -   [AuthConsumer][42]
+    -   [withAuth][43]
 
 ## Helpers
 
@@ -76,7 +77,7 @@
 
 ### Parameters
 
--   `$0` **[Object][43]** 
+-   `$0` **[Object][44]** 
     -   `$0.title`  
     -   `$0.children`  
 
@@ -90,7 +91,7 @@ fake fetch
 
 -   `timeout`   (optional, default `500`)
 
-Returns **[Promise][44]&lt;unknown>** 
+Returns **[Promise][45]&lt;unknown>** 
 
 ### checkAuth
 
@@ -115,7 +116,7 @@ Returns **[Promise][44]&lt;unknown>**
 ## router
 
 Главный роутер приложения
-работает на базе [React router][45]
+работает на базе [React router][46]
 
 ## Index
 
@@ -124,6 +125,8 @@ Returns **[Promise][44]&lt;unknown>**
 ### getRoutes
 
 ### render
+
+## Login
 
 ## get
 
@@ -135,7 +138,7 @@ Returns **[Promise][44]&lt;unknown>**
 -   `data`  
 -   `opts`  
 
-Returns **[Promise][44]&lt;any>** 
+Returns **[Promise][45]&lt;any>** 
 
 ## ProtectedRoute
 
@@ -145,23 +148,23 @@ Returns **[Promise][44]&lt;any>**
 
 ### Parameters
 
--   `url` **[string][46]** адрес
+-   `url` **[string][47]** адрес
 -   `data`  
 -   `opts`  
 
-Returns **[Promise][44]&lt;any>** 
-
-## httpClient
-
-### get
-
-### post
+Returns **[Promise][45]&lt;any>** 
 
 ## withAuth
 
 ### Parameters
 
 -   `Component`  
+
+## httpClient
+
+### get
+
+### post
 
 ## AuthConsumer
 
@@ -227,40 +230,42 @@ Returns **[Promise][44]&lt;any>**
 
 [27]: #render-1
 
-[28]: #get
+[28]: #login-1
 
-[29]: #parameters-5
+[29]: #get
 
-[30]: #protectedroute
+[30]: #parameters-5
 
-[31]: #post
+[31]: #protectedroute
 
-[32]: #parameters-6
+[32]: #post
 
-[33]: #httpclient
+[33]: #parameters-6
 
-[34]: #get-1
+[34]: #withauth
 
-[35]: #post-1
+[35]: #parameters-7
 
-[36]: #withauth
+[36]: #httpclient
 
-[37]: #parameters-7
+[37]: #get-1
 
-[38]: #authconsumer
+[38]: #post-1
 
-[39]: #authcontext
+[39]: #authconsumer
 
-[40]: #authprovider-1
+[40]: #authcontext
 
-[41]: #authconsumer-1
+[41]: #authprovider-1
 
-[42]: #withauth-1
+[42]: #authconsumer-1
 
-[43]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[43]: #withauth-1
 
-[44]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[44]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[45]: https://reacttraining.com/react-router/web/guides/quick-start
+[45]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-[46]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[46]: https://reacttraining.com/react-router/web/guides/quick-start
+
+[47]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String

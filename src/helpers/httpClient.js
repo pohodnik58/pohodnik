@@ -10,7 +10,7 @@ const options = {
     },
     credentials: 'omit', // include, *same-origin, omit
     mode: 'cors'
-}
+};
 
 function getHost() {
     return PRODUCTION ? '' : 'http://pohodnik.tk:8000';
