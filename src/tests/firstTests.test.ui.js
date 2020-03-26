@@ -10,7 +10,7 @@ const height = 1080;
 
 beforeAll(async () => {
     browser = await puppeteer.launch({
-        headless: false,
+        headless: process.env.HEADLESS !== 'false',
         slowMo: 0,
         args: [`--window-size=${width},${height}`]
     });
@@ -20,7 +20,7 @@ beforeAll(async () => {
 });
 
 describe('Страница авторизации', () => {
-    test('Ожидается наличие кнопки Войти', () => getBtnText(page));
+    test('Ожидается наличие кнопки Войти', () => getBtnText(page), 15000);
     test('Ожидается наличие поля Логин', () => getLoginInput(page));
     test('Ожидается наличие поля Пароль', () => getPassInput(page));
 });
