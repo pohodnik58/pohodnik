@@ -12,6 +12,8 @@
     "deploy": "yarn build & node ./scripts/ftpDeploy",
     "test": "jest --colors",
     "test:watch": "jest --watch --colors",
+    "testui": "jest --colors --config=jest-ui.config.js",
+    "testui:watch": "jest --watch --colors --config=jest-ui.config.js",
     "eslint": "eslint src/**/*.js --quiet",
     "eslint:fix": "eslint src/**/*.js --quiet --fix",
     "stylelint": "stylelint src/**/*.less --quiet --color --syntax less",
