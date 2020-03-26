@@ -86,7 +86,7 @@ module.exports = {
     // notifyMode: "failure-change",
 
     // A preset that is used as a base for Jest's configuration
-    // preset: null,
+    preset: "jest-puppeteer",
 
     // Run tests from one or more projects
     // projects: null,
@@ -174,7 +174,7 @@ module.exports = {
     // unmockedModulePathPatterns: undefined,
 
     // Indicates whether each individual test should be reported during the run
-    // verbose: null,
+    verbose: true,
 
     // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
     // watchPathIgnorePatterns: [],
