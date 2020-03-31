@@ -1,31 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 const AuthContext = React.createContext();
 
 export class AuthProvider extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isAuth: false };
+        this.state = {
+            isAuth: false,
+            user: null
+        };
     }
 
-    login = () => {
-        setTimeout(() => this.setState({ isAuth: true }), 1000);
+    loginHandler = async (data, cb) => {
+        this.setState({
+            isAuth: true,
+            user: data
+        }, cb);
     }
 
-    logout = () => {
-        this.setState({ isAuth: false });
+    logoutHandler = cb => {
+        this.setState({
+            isAuth: false,
+            user: null
+        }, cb);
     }
 
     render() {
-        const { isAuth } = this.state;
+        const { isAuth, user } = this.state;
         const { children } = this.props;
         return (
             <AuthContext.Provider
                 value={{
                     isAuth,
-                    login: this.login,
-                    logout: this.logout
+                    user,
+                    onLogin: this.loginHandler,
+                    onLogout: this.logoutHandler
                 }}
             >
                 {children}

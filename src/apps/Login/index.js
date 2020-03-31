@@ -1,9 +1,14 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import queryString from 'query-string';
 import {
     Form, Input, Button, Checkbox
 } from 'antd';
 import style from './style.m.less';
-import { post } from '../../helpers/httpClient';
+import { login } from '../../services/authService';
+import { AuthConsumer } from '../../contexts/AuthContext';
+import { navigate } from '../../helpers/navigate';
+import { error, success } from '../../helpers/message';
 
 const layout = {
     labelCol: {
@@ -21,10 +26,16 @@ const tailLayout = {
 };
 
 const Login = () => {
-    const onFinish = async values => {
-        console.log('Success:', values);
-        const result = await post('/ajax/login_start.php', { login: values.username, psw: values.password });
-        console.log('Success:', values, result);
+    const history = useHistory();
+    const onFinish = async (values, onLogin) => {
+        const result = await login(values);
+        if (result?.userId) {
+            success('welcome');
+            const search = queryString.parse(history.location.search) || {};
+            onLogin({ id: result.userId }, () => history.push(search.return || '/'));
+        } else {
+            error(result.error?.message || result.error);
+        }
     };
 
     const onFinishFailed = errorInfo => {
@@ -32,53 +43,57 @@ const Login = () => {
     };
 
     return (
-        <section className={style.loginFormWrapper}>
-            <Form
-                {...layout}
-                name="basic"
-                initialValues={{
-                    remember: true,
-                }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-            >
-                <Form.Item
-                    label="Имя пользователя"
-                    name="username"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Введите имя пользователя!',
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
+        <AuthConsumer>
+            {({ onLogin }) => (
+                <section className={style.loginFormWrapper}>
+                    <Form
+                        {...layout}
+                        name="basic"
+                        initialValues={{
+                            remember: true,
+                        }}
+                        onFinish={values => onFinish(values, onLogin)}
+                        onFinishFailed={onFinishFailed}
+                    >
+                        <Form.Item
+                            label="Имя пользователя"
+                            name="username"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Введите имя пользователя!',
+                                },
+                            ]}
+                        >
+                            <Input />
+                        </Form.Item>
 
-                <Form.Item
-                    label="Пароль"
-                    name="password"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Введите пароль!',
-                        },
-                    ]}
-                >
-                    <Input.Password />
-                </Form.Item>
+                        <Form.Item
+                            label="Пароль"
+                            name="password"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Введите пароль!',
+                                },
+                            ]}
+                        >
+                            <Input.Password />
+                        </Form.Item>
 
-                <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                    <Checkbox>Запомнить меня</Checkbox>
-                </Form.Item>
+                        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+                            <Checkbox>Запомнить меня</Checkbox>
+                        </Form.Item>
 
-                <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Войти
-                    </Button>
-                </Form.Item>
-            </Form>
-        </section>
+                        <Form.Item {...tailLayout}>
+                            <Button type="primary" htmlType="submit">
+                                Войти
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </section>
+            )}
+        </AuthConsumer>
     );
 };
 

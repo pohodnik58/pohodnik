@@ -4,7 +4,7 @@
   "description": "pohodnik site",
   "main": "index.html",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open --hot",
+    "dev": "webpack-dev-server --mode development --open --hot --https",
     "start": "webpack --mode development",
     "start:watch": "webpack --mode development --watch",
     "build": "webpack --mode production",
@@ -108,6 +108,7 @@
   },
   "dependencies": {
     "antd": "^4.0.3",
+    "query-string": "^6.11.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1"

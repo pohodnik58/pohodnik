@@ -13,7 +13,7 @@ const options = {
 };
 
 function getHost() {
-    return PRODUCTION ? '' : 'http://pohodnik.tk:8000';
+    return PRODUCTION ? '' : '//pohodnik.tk';
 }
 
 /**
@@ -37,7 +37,18 @@ export function get(url, data, opts) {
  */
 export function post(url, data, opts) {
     const fullUrl = `${getHost()}${url}`;
-    return fetch(fullUrl, { ...options, ...opts, method: 'POST' }, data).then(res => res.json());
+    let body;
+    if (data) {
+        const formData = new FormData();
+        Object.entries(data).forEach(([key, value]) => formData.append(key, value));
+        body = formData;
+    }
+    return fetch(fullUrl, {
+        ...options,
+        ...opts,
+        method: 'POST',
+        body
+    }).then(res => res.json());
 }
 
 export default { get, post };

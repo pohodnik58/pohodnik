@@ -6,7 +6,6 @@ import Header from '../Header';
 import Footer from '../Footer';
 import ProtectedRoute from '../ProtectedRoute';
 import routes from '../../router';
-import history from '../../history';
 
 const { Content } = Layout;
 
@@ -27,7 +26,7 @@ class Index extends React.Component {
         return (
             <div>
                 <AuthProvider>
-                    <Router history={history}>
+                    <Router>
                         <Layout className="layout">
                             <Header />
                             <Content style={{ padding: '0 50px' }}>
