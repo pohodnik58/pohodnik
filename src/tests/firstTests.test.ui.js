@@ -1,4 +1,9 @@
-import { getBtnText, getLoginInput, getPassInput } from './tests';
+import {
+    getBtnText,
+    getCheckBoxOn,
+    getLoginInput,
+    getPassInput
+} from './tests';
 
 const puppeteer = require('puppeteer');
 
@@ -20,9 +25,10 @@ beforeAll(async () => {
 });
 
 describe('Страница авторизации', () => {
-    test('Ожидается наличие кнопки Войти', () => getBtnText(page), 15000);
-    test('Ожидается наличие поля Логин', () => getLoginInput(page));
-    test('Ожидается наличие поля Пароль', () => getPassInput(page));
+    test('Ожидается наличие кнопки с текстом Войти', () => getBtnText(page));
+    test('Ожидается наличие поля Логин с названием Имя пользователя', () => getLoginInput(page));
+    test('Ожидается наличие поля Пароль с названием Пароль', () => getPassInput(page));
+    test('Ожидается наличие установленного чекбокса с подписью Запомнить меня', () => getCheckBoxOn(page));
 });
 
 
