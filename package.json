@@ -4,7 +4,8 @@
   "description": "pohodnik site",
   "main": "index.html",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open --hot --https",
+    "dev": "webpack-dev-server --mode development --open --hot",
+    "dev:https": "webpack-dev-server --mode development --open --hot --https",
     "start": "webpack --mode development",
     "start:watch": "webpack --mode development --watch",
     "build": "webpack --mode production",
