@@ -12,7 +12,7 @@ import { post } from '../helpers/httpClient';
  * @param <Boolean> options.remember признак того, что нужно запомнить пользователя
  * @returns {Promise<any>} ok: {userId: XXX} err: {error: XXX, message: xxx}
  */
-export async function login({ username, password, remember }) {
+export async function login({ username, password, remember } = {}) {
     const result = await post('/ajax/login_start.php', { login: username, pass: password, is_remember: remember });
     return result;
 }
