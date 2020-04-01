@@ -3,53 +3,85 @@
 ### Table of Contents
 
 -   [Helpers][1]
--   [navigate][2]
-    -   [Parameters][3]
-    -   [navigate][4]
--   [navigate][5]
-    -   [navigate][6]
--   [index][7]
--   [index][8]
--   [index][9]
+-   [browserHistory][2]
+-   [navigate][3]
+    -   [Parameters][4]
+    -   [navigate][5]
+-   [navigate][6]
+    -   [navigate][7]
+-   [Page][8]
+    -   [Parameters][9]
 -   [index][10]
 -   [index][11]
--   [Page][12]
-    -   [Parameters][13]
--   [authService][14]
-    -   [fetchData][15]
-        -   [Parameters][16]
-    -   [checkAuth][17]
-        -   [Parameters][18]
--   [AuthProvider][19]
-    -   [Parameters][20]
-    -   [login][21]
-    -   [logout][22]
-    -   [render][23]
--   [router][24]
--   [Index][25]
-    -   [getRoutes][26]
-    -   [render][27]
--   [Login][28]
--   [get][29]
-    -   [Parameters][30]
--   [ProtectedRoute][31]
--   [post][32]
-    -   [Parameters][33]
--   [withAuth][34]
-    -   [Parameters][35]
--   [httpClient][36]
-    -   [get][37]
-    -   [post][38]
--   [AuthConsumer][39]
--   [AuthContext][40]
-    -   [AuthProvider][41]
-    -   [AuthConsumer][42]
-    -   [withAuth][43]
+-   [index][12]
+-   [index][13]
+-   [AuthProvider][14]
+    -   [Parameters][15]
+    -   [loginHandler][16]
+        -   [Parameters][17]
+    -   [logoutHandler][18]
+        -   [Parameters][19]
+    -   [render][20]
+-   [success][21]
+    -   [Parameters][22]
+-   [router][23]
+-   [Index][24]
+    -   [getRoutes][25]
+    -   [render][26]
+-   [error][27]
+    -   [Parameters][28]
+-   [authService][29]
+    -   [fetchData][30]
+        -   [Parameters][31]
+    -   [checkAuth][32]
+        -   [Parameters][33]
+    -   [login][34]
+-   [authService][35]
+    -   [fetchData][36]
+        -   [Parameters][37]
+    -   [checkAuth][38]
+        -   [Parameters][39]
+    -   [login][40]
+-   [login][41]
+    -   [Parameters][42]
+-   [warning][43]
+    -   [Parameters][44]
+-   [warn][45]
+    -   [Parameters][46]
+-   [info][47]
+    -   [Parameters][48]
+-   [get][49]
+    -   [Parameters][50]
+-   [Login][51]
+-   [ProtectedRoute][52]
+-   [loading][53]
+    -   [Parameters][54]
+-   [message][55]
+    -   [success][56]
+    -   [error][57]
+    -   [warning][58]
+    -   [warn][59]
+    -   [info][60]
+    -   [loading][61]
+-   [post][62]
+    -   [Parameters][63]
+-   [withAuth][64]
+    -   [Parameters][65]
+-   [httpClient][66]
+    -   [get][67]
+    -   [post][68]
+-   [AuthConsumer][69]
+-   [AuthContext][70]
+    -   [AuthProvider][71]
+    -   [AuthConsumer][72]
+    -   [withAuth][73]
 
 ## Helpers
 
 Вспомогательные функции
 
+
+## browserHistory
 
 ## navigate
 
@@ -63,23 +95,69 @@
 
 ### navigate
 
-## index
-
-## index
-
-## index
-
-## index
-
-## index
-
 ## Page
 
 ### Parameters
 
--   `$0` **[Object][44]** 
+-   `$0` **[Object][74]** 
     -   `$0.title`  
     -   `$0.children`  
+
+## index
+
+## index
+
+## index
+
+## index
+
+## AuthProvider
+
+**Extends React.Component**
+
+### Parameters
+
+-   `props`  
+
+### loginHandler
+
+#### Parameters
+
+-   `data`  
+-   `cb`  
+
+### logoutHandler
+
+#### Parameters
+
+-   `cb`  
+
+### render
+
+## success
+
+### Parameters
+
+-   `content`  
+
+## router
+
+Главный роутер приложения
+работает на базе [React router][75]
+
+## Index
+
+**Extends React.Component**
+
+### getRoutes
+
+### render
+
+## error
+
+### Parameters
+
+-   `content`  
 
 ## authService
 
@@ -91,7 +169,7 @@ fake fetch
 
 -   `timeout`   (optional, default `500`)
 
-Returns **[Promise][45]&lt;unknown>** 
+Returns **[Promise][76]&lt;unknown>** 
 
 ### checkAuth
 
@@ -99,34 +177,61 @@ Returns **[Promise][45]&lt;unknown>**
 
 -   `timeout`   (optional, default `500`)
 
-## AuthProvider
+### login
 
-**Extends React.Component**
+## authService
 
-### Parameters
+### fetchData
 
--   `props`  
+fake fetch
+
+#### Parameters
+
+-   `timeout`   (optional, default `500`)
+
+Returns **[Promise][76]&lt;unknown>** 
+
+### checkAuth
+
+#### Parameters
+
+-   `timeout`   (optional, default `500`)
 
 ### login
 
-### logout
+## login
 
-### render
+Авторизация пользователя
 
-## router
+### Parameters
 
-Главный роутер приложения
-работает на базе [React router][46]
+-   `$0` **[Object][74]** 
+    -   `$0.username`  
+    -   `$0.password`  
+    -   `$0.remember`  
+-   `null`  <string> username логин
+-   `null`  <string> password пароль
+-   `null`  <Boolean> remember признак того, что нужно запомнить пользователя на продолжительное время
 
-## Index
+Returns **[Promise][76]&lt;any>** в случае успеха {userId: XXX} иначе {error: XXX, message: xxx}
 
-**Extends React.Component**
+## warning
 
-### getRoutes
+### Parameters
 
-### render
+-   `content`  
 
-## Login
+## warn
+
+### Parameters
+
+-   `x`  
+
+## info
+
+### Parameters
+
+-   `content`  
 
 ## get
 
@@ -138,9 +243,31 @@ Returns **[Promise][45]&lt;unknown>**
 -   `data`  
 -   `opts`  
 
-Returns **[Promise][45]&lt;any>** 
+Returns **[Promise][76]&lt;any>** 
+
+## Login
 
 ## ProtectedRoute
+
+## loading
+
+### Parameters
+
+-   `content`  
+
+## message
+
+### success
+
+### error
+
+### warning
+
+### warn
+
+### info
+
+### loading
 
 ## post
 
@@ -148,11 +275,11 @@ Returns **[Promise][45]&lt;any>**
 
 ### Parameters
 
--   `url` **[string][47]** адрес
+-   `url` **[string][77]** адрес
 -   `data`  
 -   `opts`  
 
-Returns **[Promise][45]&lt;any>** 
+Returns **[Promise][76]&lt;any>** 
 
 ## withAuth
 
@@ -178,94 +305,154 @@ Returns **[Promise][45]&lt;any>**
 
 [1]: #helpers
 
-[2]: #navigate
+[2]: #browserhistory
 
-[3]: #parameters
+[3]: #navigate
 
-[4]: #navigate-1
+[4]: #parameters
 
-[5]: #navigate-2
+[5]: #navigate-1
 
-[6]: #navigate-3
+[6]: #navigate-2
 
-[7]: #index
+[7]: #navigate-3
 
-[8]: #index-1
+[8]: #page
 
-[9]: #index-2
+[9]: #parameters-1
 
-[10]: #index-3
+[10]: #index
 
-[11]: #index-4
+[11]: #index-1
 
-[12]: #page
+[12]: #index-2
 
-[13]: #parameters-1
+[13]: #index-3
 
-[14]: #authservice
+[14]: #authprovider
 
-[15]: #fetchdata
+[15]: #parameters-2
 
-[16]: #parameters-2
+[16]: #loginhandler
 
-[17]: #checkauth
+[17]: #parameters-3
 
-[18]: #parameters-3
+[18]: #logouthandler
 
-[19]: #authprovider
+[19]: #parameters-4
 
-[20]: #parameters-4
+[20]: #render
 
-[21]: #login
+[21]: #success
 
-[22]: #logout
+[22]: #parameters-5
 
-[23]: #render
+[23]: #router
 
-[24]: #router
+[24]: #index-4
 
-[25]: #index-5
+[25]: #getroutes
 
-[26]: #getroutes
+[26]: #render-1
 
-[27]: #render-1
+[27]: #error
 
-[28]: #login-1
+[28]: #parameters-6
 
-[29]: #get
+[29]: #authservice
 
-[30]: #parameters-5
+[30]: #fetchdata
 
-[31]: #protectedroute
+[31]: #parameters-7
 
-[32]: #post
+[32]: #checkauth
 
-[33]: #parameters-6
+[33]: #parameters-8
 
-[34]: #withauth
+[34]: #login
 
-[35]: #parameters-7
+[35]: #authservice-1
 
-[36]: #httpclient
+[36]: #fetchdata-1
 
-[37]: #get-1
+[37]: #parameters-9
 
-[38]: #post-1
+[38]: #checkauth-1
 
-[39]: #authconsumer
+[39]: #parameters-10
 
-[40]: #authcontext
+[40]: #login-1
 
-[41]: #authprovider-1
+[41]: #login-2
 
-[42]: #authconsumer-1
+[42]: #parameters-11
 
-[43]: #withauth-1
+[43]: #warning
 
-[44]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[44]: #parameters-12
 
-[45]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[45]: #warn
 
-[46]: https://reacttraining.com/react-router/web/guides/quick-start
+[46]: #parameters-13
 
-[47]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[47]: #info
+
+[48]: #parameters-14
+
+[49]: #get
+
+[50]: #parameters-15
+
+[51]: #login-3
+
+[52]: #protectedroute
+
+[53]: #loading
+
+[54]: #parameters-16
+
+[55]: #message
+
+[56]: #success-1
+
+[57]: #error-1
+
+[58]: #warning-1
+
+[59]: #warn-1
+
+[60]: #info-1
+
+[61]: #loading-1
+
+[62]: #post
+
+[63]: #parameters-17
+
+[64]: #withauth
+
+[65]: #parameters-18
+
+[66]: #httpclient
+
+[67]: #get-1
+
+[68]: #post-1
+
+[69]: #authconsumer
+
+[70]: #authcontext
+
+[71]: #authprovider-1
+
+[72]: #authconsumer-1
+
+[73]: #withauth-1
+
+[74]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[75]: https://reacttraining.com/react-router/web/guides/quick-start
+
+[76]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+[77]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
