@@ -6,10 +6,11 @@ import { post } from '../helpers/httpClient';
 
 /**
  * Авторизация пользователя
- * @param <string> username логин
- * @param <string> password пароль
- * @param <Boolean> remember признак того, что нужно запомнить пользователя на продолжительное время
- * @returns {Promise<any>} в случае успеха {userId: XXX} иначе {error: XXX, message: xxx}
+ * @param <Object> options параметры
+ * @param <string> options.username логин
+ * @param <string> options.password пароль
+ * @param <Boolean> options.remember признак того, что нужно запомнить пользователя
+ * @returns {Promise<any>} ok: {userId: XXX} err: {error: XXX, message: xxx}
  */
 export async function login({ username, password, remember }) {
     const result = await post('/ajax/login_start.php', { login: username, pass: password, is_remember: remember });
