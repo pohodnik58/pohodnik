@@ -5,6 +5,7 @@ import { post } from '../helpers/httpClient';
  */
 
 /**
+ * Параметры функции авторизации пользователя по логину.паролю
  * @typedef {Object} LogPasswAuthParams
  * @property <string> username логин
  * @property <string> password пароль
