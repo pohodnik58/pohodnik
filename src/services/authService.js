@@ -5,11 +5,15 @@ import { post } from '../helpers/httpClient';
  */
 
 /**
+ * @typedef {Object} LogPasswAuthParams
+ * @property <string> username логин
+ * @property <string> password пароль
+ * @property <Boolean> remember признак того, что нужно запомнить пользователя
+ */
+
+/**
  * Авторизация пользователя
- * @param <Object> options параметры
- * @param <string> options.username логин
- * @param <string> options.password пароль
- * @param <Boolean> options.remember признак того, что нужно запомнить пользователя
+ * @param <LogPasswAuthParams>
  * @returns {Promise<any>} ok: {userId: XXX} err: {error: XXX, message: xxx}
  */
 export async function login({ username, password, remember } = {}) {
