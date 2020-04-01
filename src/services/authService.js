@@ -8,7 +8,7 @@ import { post } from '../helpers/httpClient';
  * @typedef {Object} LogPasswAuthParams
  * @property <string> username логин
  * @property <string> password пароль
- * @property <Boolean> remember признак того, что нужно запомнить пользователя
+ * @property <Boolean> [remember=true] признак того, что нужно запомнить пользователя
  */
 
 /**
@@ -16,7 +16,7 @@ import { post } from '../helpers/httpClient';
  * @param <LogPasswAuthParams>
  * @returns {Promise<any>} ok: {userId: XXX} err: {error: XXX, message: xxx}
  */
-export async function login({ username, password, remember } = {}) {
+export async function login({ username, password, remember = true }) {
     const result = await post('/ajax/login_start.php', { login: username, pass: password, is_remember: remember });
     return result;
 }
