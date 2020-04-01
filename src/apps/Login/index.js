@@ -7,7 +7,6 @@ import {
 import style from './style.m.less';
 import { login } from '../../services/authService';
 import { AuthConsumer } from '../../contexts/AuthContext';
-import { navigate } from '../../helpers/navigate';
 import { error, success } from '../../helpers/message';
 
 const layout = {

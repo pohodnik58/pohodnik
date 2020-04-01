@@ -1,4 +1,4 @@
-import {post} from "../helpers/httpClient";
+import { post } from '../helpers/httpClient';
 
 /**
  * @namespace authService
@@ -12,8 +12,8 @@ import {post} from "../helpers/httpClient";
  * @returns {Promise<any>} в случае успеха {userId: XXX} иначе {error: XXX, message: xxx}
  */
 export async function login({ username, password, remember }) {
-    const result = await post('/ajax/login_start.php', { login: username, pass: password, is_remember: remember});
-    return  result;
+    const result = await post('/ajax/login_start.php', { login: username, pass: password, is_remember: remember });
+    return result;
 }
 
 export default {
