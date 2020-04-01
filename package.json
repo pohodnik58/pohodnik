@@ -21,9 +21,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn jsdoc:lint",
-      "yarn jsdoc",
-      "git add"
+      "git add",
+      "yarn eslint:fix"
     ],
     "*.less": [
       "yarn stylelint:fix",
@@ -33,7 +32,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test && yarn eslint && yarn stylelint && yarn jsdoc"
+      "pre-push": "yarn test && yarn eslint && yarn stylelint && yarn jsdoc:lint"
     }
   },
   "repository": {
