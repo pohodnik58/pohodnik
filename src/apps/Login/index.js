@@ -32,10 +32,6 @@ const Login = () => {
             success('welcome');
             const search = queryString.parse(history.location.search) || {};
             const { user } = await loginCheck();
-            const date = new Date(Date.now() + 86400e3);
-            document.cookie = `hash=${result.hash}; expires=${date.toUTCString()}; domain=pohodnik.tk`;
-            document.cookie = `user=${result.userId}; expires=${date.toUTCString()}; domain=pohodnik.tk`;
-
             onLogin({ id: result.userId, ...user }, () => history.push(search.return || '/'));
         } else {
             error(result.error?.message || result.error);

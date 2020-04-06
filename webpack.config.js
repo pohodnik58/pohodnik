@@ -251,7 +251,7 @@ module.exports = (env, argv) => {
         devServer: {
             historyApiFallback: true,
             proxy: {
-                '*': {
+                '/ajax': {
                     target: 'http://pohodnik.tk',
                     secure: false,
                     changeOrigin: true,

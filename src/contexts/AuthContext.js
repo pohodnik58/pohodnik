@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { loginCheck } from '../services/authService';
 
 const AuthContext = React.createContext();
 
@@ -8,8 +9,21 @@ export class AuthProvider extends React.Component {
         super(props);
         this.state = {
             isAuth: false,
+            isAuthLoading: false,
             user: null
         };
+    }
+
+    componentDidMount = async () => {
+        this.setState({ isAuthLoading: true });
+        const userData = await loginCheck();
+        if (userData.user) {
+            this.setState({
+                isAuth: true,
+                user: userData.user,
+                isAuthLoading: false
+            });
+        }
     }
 
     loginHandler = async (data, cb) => {
@@ -29,12 +43,13 @@ export class AuthProvider extends React.Component {
     }
 
     render() {
-        const { isAuth, user } = this.state;
+        const { isAuth, isAuthLoading, user } = this.state;
         const { children } = this.props;
         return (
             <AuthContext.Provider
                 value={{
                     isAuth,
+                    isAuthLoading,
                     user,
                     onLogin: this.loginHandler,
                     onLogout: this.logoutHandler

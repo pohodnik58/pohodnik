@@ -1,15 +1,17 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
+import { LoadingOutlined } from '@ant-design/icons';
 import { AuthConsumer } from '../../../contexts/AuthContext';
 import style from './style.m.less';
+import UserMenu from './UserMenu';
 
 export default () => {
     const history = useHistory();
 
     return (
         <AuthConsumer>
-            {({ isAuth }) => (
+            {({ isAuth, isAuthLoading }) => (
                 <Menu
                     theme="dark"
                     mode="horizontal"
@@ -25,11 +27,10 @@ export default () => {
                     <Menu.Item key="3">
                         <Link to="/recipes">Рецепты</Link>
                     </Menu.Item>
-                    {
-                        isAuth
-                            ? <Menu.Item key="4"><Link to="/logout">Выйти</Link></Menu.Item>
-                            : <Menu.Item key="4"><Link to={`/login?return=${history.location.pathname}`}>Войти</Link></Menu.Item>
-                    }
+                    { isAuthLoading && <LoadingOutlined /> }
+                    { !isAuthLoading && (isAuth
+                        ? <UserMenu key="4" />
+                        : <Menu.Item key="4"><Link to={`/login?return=${history.location.pathname}`}>Войти</Link></Menu.Item>)}
                 </Menu>
             )}
         </AuthConsumer>
