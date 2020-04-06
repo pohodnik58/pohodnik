@@ -219,7 +219,7 @@ module.exports = (env, argv) => {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
                 VERSION: JSON.stringify(pakageJson.version)
             }),
-			new AntdDayjsWebpackPlugin()
+            new AntdDayjsWebpackPlugin()
         ],
         optimization: {
             minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
@@ -250,6 +250,14 @@ module.exports = (env, argv) => {
         },
         devServer: {
             historyApiFallback: true,
+            proxy: {
+                '*': {
+                    target: 'http://pohodnik.tk',
+                    secure: false,
+                    changeOrigin: true,
+                    logLevel: 'debug',
+                },
+            }
         },
     };
 };

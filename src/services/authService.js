@@ -1,4 +1,4 @@
-import { post } from '../helpers/httpClient';
+import { get, post } from '../helpers/httpClient';
 
 /**
  * @namespace authService
@@ -11,6 +11,11 @@ import { post } from '../helpers/httpClient';
  */
 export async function login({ username, password, remember = true }) {
     const result = await post('/ajax/login_start.php', { login: username, pass: password, is_remember: remember });
+    return result;
+}
+
+export async function loginCheck() {
+    const result = await get('/ajax/login_check.php');
     return result;
 }
 

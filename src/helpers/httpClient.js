@@ -13,7 +13,7 @@ const options = {
 };
 
 function getHost() {
-    return PRODUCTION ? '' : '//pohodnik.tk';
+    return PRODUCTION ? '' : '';
 }
 
 /**

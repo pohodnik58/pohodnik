@@ -5,7 +5,7 @@ import {
     Form, Input, Button, Checkbox
 } from 'antd';
 import style from './style.m.less';
-import { login } from '../../services/authService';
+import { login, loginCheck } from '../../services/authService';
 import { AuthConsumer } from '../../contexts/AuthContext';
 import { error, success } from '../../helpers/message';
 
@@ -31,7 +31,12 @@ const Login = () => {
         if (result?.userId) {
             success('welcome');
             const search = queryString.parse(history.location.search) || {};
-            onLogin({ id: result.userId }, () => history.push(search.return || '/'));
+            const { user } = await loginCheck();
+            const date = new Date(Date.now() + 86400e3);
+            document.cookie = `hash=${result.hash}; expires=${date.toUTCString()}; domain=pohodnik.tk`;
+            document.cookie = `user=${result.userId}; expires=${date.toUTCString()}; domain=pohodnik.tk`;
+
+            onLogin({ id: result.userId, ...user }, () => history.push(search.return || '/'));
         } else {
             error(result.error?.message || result.error);
         }

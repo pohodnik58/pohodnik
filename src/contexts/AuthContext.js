@@ -13,6 +13,8 @@ export class AuthProvider extends React.Component {
     }
 
     loginHandler = async (data, cb) => {
+        console.info('USER', data);
+
         this.setState({
             isAuth: true,
             user: data
