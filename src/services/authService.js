@@ -14,6 +14,11 @@ export async function login({ username, password, remember = true }) {
     return result;
 }
 
+export async function logout(cb) {
+    await post('/ajax/login_out.php');
+    cb(); 
+}
+
 export async function loginCheck() {
     const result = await get('/ajax/login_check.php');
     return result;
