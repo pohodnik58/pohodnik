@@ -16,7 +16,7 @@ export async function login({ username, password, remember = true }) {
 
 export async function logout(cb) {
     await post('/ajax/login_out.php');
-    cb(); 
+    cb();
 }
 
 export async function loginCheck() {
