@@ -2,13 +2,14 @@ import React from 'react';
 import { Menu, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 import { AuthConsumer } from '../../../../contexts/AuthContext';
+import { logout } from '../../../../services/authService';
 
 const { SubMenu } = Menu;
 
 export default function UserMenu(props) {
     return (
         <AuthConsumer>
-            {({ user }) => (
+            {({ user, onLogout }) => (
                 <SubMenu
                     title={(
                         <span className="submenu-title-wrapper">
@@ -23,9 +24,7 @@ export default function UserMenu(props) {
 
                     <Menu.Item key="setting:1"><Link to="/Profile">Профиль</Link></Menu.Item>
                     <Menu.Divider />
-                    <Menu.Item key="setting:3">
-                        <Link to="/Logout">Выйти</Link>
-                    </Menu.Item>
+                    <Menu.Item key="setting:3" onClick={() => logout(onLogout)}>Выйти</Menu.Item>
 
                 </SubMenu>
             )}
