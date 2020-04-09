@@ -30,6 +30,9 @@ const Login = () => {
         const result = await login(values);
         if (result?.userId) {
             success('welcome');
+            const date = new Date(Date.now() + 86400e3);
+            document.cookie = `user=${result.userId}; expires=${date.toUTCString()}`;
+            document.cookie = `hash=${result.hash}; expires=${date.toUTCString()}`;
             const search = queryString.parse(history.location.search) || {};
             const { user } = await loginCheck();
             onLogin({ id: result.userId, ...user }, () => history.push(search.return || '/'));
