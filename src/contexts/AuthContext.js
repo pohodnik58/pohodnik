@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { loginCheck } from '../services/authService';
+import { success } from '../helpers/message';
 
 const AuthContext = React.createContext();
 
@@ -38,10 +39,12 @@ export class AuthProvider extends React.Component {
     }
 
     logoutHandler = cb => {
+        const { user } = this.state;
         this.setState({
             isAuth: false,
             user: null
         }, cb);
+        success(`До новых походов, ${user.name}`);
     }
 
     render() {
