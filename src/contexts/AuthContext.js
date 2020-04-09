@@ -20,10 +20,12 @@ export class AuthProvider extends React.Component {
         if (userData.user) {
             this.setState({
                 isAuth: true,
-                user: userData.user,
-                isAuthLoading: false
+                user: userData.user
             });
         }
+        this.setState({
+            isAuthLoading: false
+        });
     }
 
     loginHandler = async (data, cb) => {
