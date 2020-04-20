@@ -32,7 +32,7 @@ export class AuthProvider extends React.Component {
     loginHandler = async (data, cb) => {
         success('welcome');
         const date = new Date(Date.now() + 86400e3);
-        document.cookie = `user=${data.userId}; expires=${date.toUTCString()}`;
+        document.cookie = `user=${data.id}; expires=${date.toUTCString()}`;
         document.cookie = `hash=${data.hash}; expires=${date.toUTCString()}`;
         const { user } = await loginCheck();
         console.info('USER', data);
