@@ -10,7 +10,7 @@ export default function UserMenu(props) {
     return (
         <AuthConsumer>
             {({ user, onLogout }) => (
-                <SubMenu
+                <SubMenu className="userMenu"
                     title={(
                         <span className="submenu-title-wrapper">
                             <Avatar src={user.photo_50} size="small">
@@ -24,7 +24,7 @@ export default function UserMenu(props) {
 
                     <Menu.Item key="setting:1"><Link to="/Profile">Профиль</Link></Menu.Item>
                     <Menu.Divider />
-                    <Menu.Item key="setting:3" onClick={() => logout(onLogout)}>Выйти</Menu.Item>
+                    <Menu.Item key="setting:3" className="logoutBtn" onClick={() => logout(onLogout)} >Выйти</Menu.Item>
 
                 </SubMenu>
             )}
