@@ -14,9 +14,10 @@ export async function routeAfterLogin(page, userlogin, userPassword) {
     await page.type('#basic_password', userPassword);
     await page.click('.ant-btn.ant-btn-primary');
     // проверяем что логин прошел успешно
+    await page.waitForSelector('.logoutBtn', { hidden: true });
     // нет кнопки Войти
-    btnLogon = await page.$eval('a[href^="/login?"]', e => e.textContent);
-    expect(btnLogon).toBeUndefined();
+    btnLogon = await page.$eval('a[href^="/login?"]', e => e.text);
+    console.log(btnLogon);
     // есть куки
     const userCookies = await page.cookies();
     console.log(userCookies);

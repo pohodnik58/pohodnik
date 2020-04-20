@@ -25,8 +25,6 @@ describe('Страница авторизации', () => {
 });
 
 
-/*
 afterAll(async () => {
     await browser.close();
 });
-*/
