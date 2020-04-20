@@ -30,6 +30,11 @@ export class AuthProvider extends React.Component {
     }
 
     loginHandler = async (data, cb) => {
+        success('welcome');
+        const date = new Date(Date.now() + 86400e3);
+        document.cookie = `user=${data.userId}; expires=${date.toUTCString()}`;
+        document.cookie = `hash=${data.hash}; expires=${date.toUTCString()}`;
+
         console.info('USER', data);
 
         this.setState({
@@ -40,6 +45,11 @@ export class AuthProvider extends React.Component {
 
     logoutHandler = cb => {
         const { user } = this.state;
+
+        const date = new Date(Date.now());
+        document.cookie = `user=; expires=${date.toUTCString()}`;
+        document.cookie = `hash=; expires=${date.toUTCString()}`;
+
         this.setState({
             isAuth: false,
             user: null

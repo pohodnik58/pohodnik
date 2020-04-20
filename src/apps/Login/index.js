@@ -7,7 +7,7 @@ import {
 import style from './style.m.less';
 import { login, loginCheck } from '../../services/authService';
 import { AuthConsumer } from '../../contexts/AuthContext';
-import { error, success } from '../../helpers/message';
+import { error } from '../../helpers/message';
 
 const layout = {
     labelCol: {
@@ -29,13 +29,16 @@ const Login = () => {
     const onFinish = async (values, onLogin) => {
         const result = await login(values);
         if (result?.userId) {
-            success('welcome');
-            const date = new Date(Date.now() + 86400e3);
-            document.cookie = `user=${result.userId}; expires=${date.toUTCString()}`;
-            document.cookie = `hash=${result.hash}; expires=${date.toUTCString()}`;
             const search = queryString.parse(history.location.search) || {};
             const { user } = await loginCheck();
-            onLogin({ id: result.userId, ...user }, () => history.push(search.return || '/'));
+            onLogin(
+                {
+                    id: result.userId,
+                    hash: result.hash,
+                    ...user
+                },
+                () => history.push(search.return || '/')
+            );
         } else {
             error(result.error?.message || result.error);
         }
