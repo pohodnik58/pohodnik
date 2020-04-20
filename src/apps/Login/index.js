@@ -5,7 +5,7 @@ import {
     Form, Input, Button, Checkbox
 } from 'antd';
 import style from './style.m.less';
-import { login, loginCheck } from '../../services/authService';
+import { login } from '../../services/authService';
 import { AuthConsumer } from '../../contexts/AuthContext';
 import { error } from '../../helpers/message';
 
@@ -30,12 +30,10 @@ const Login = () => {
         const result = await login(values);
         if (result?.userId) {
             const search = queryString.parse(history.location.search) || {};
-            const { user } = await loginCheck();
             onLogin(
                 {
                     id: result.userId,
-                    hash: result.hash,
-                    ...user
+                    hash: result.hash
                 },
                 () => history.push(search.return || '/')
             );

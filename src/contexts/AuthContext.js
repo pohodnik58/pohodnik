@@ -34,12 +34,12 @@ export class AuthProvider extends React.Component {
         const date = new Date(Date.now() + 86400e3);
         document.cookie = `user=${data.userId}; expires=${date.toUTCString()}`;
         document.cookie = `hash=${data.hash}; expires=${date.toUTCString()}`;
-
+        const { user } = await loginCheck();
         console.info('USER', data);
 
         this.setState({
             isAuth: true,
-            user: data
+            user: { ...data, ...user }
         }, cb);
     }
 
