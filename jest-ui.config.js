@@ -148,7 +148,7 @@ module.exports = {
 
     // The regexp pattern or array of patterns that Jest uses to detect test files\\
 
-    testRegex: ['.+\\.test\\.js$'],
+    testRegex: ['.+\\.test\\.ui\\.js$'],
 
     // This option allows the use of a custom results processor
     // testResultsProcessor: null,
